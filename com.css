@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main:#347CB6;
+    --border:#16a2a9;
+    --text:#eeeded;
+    --background:#b9e0e0;
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 10px
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main);
+    border-radius: 5px;    
+}
+nav{
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background);
+    position: static;
+    z-index: 5;
+    position: sticky;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+}
+.logo{
+    padding-left: 60px;
+    margin: 10px; 
+    cursor: pointer;
+}
+.logo h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.9rem;
+    font-weight: 900;
+    color: var(--main);
+}
+.navbar .items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 500px;
+    gap: 30px;
+}
+.items .search{
+    width: 500px;
+    display:flex;
+}
+.search input{
+    height: 35px;
+    width: 400px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border: 2px solid var(--main);
+    outline: none;
+    padding: 10px;
+    color: var(--main);
+    font-size: 1rem;
+    font-weight: 500;
+} 
+.search input::placeholder{
+    color: var(--main);
+}
+.search button{
+    height: 35px;
+    width: 20%;
+    border:none;
+    outline: none;
+    background: var(--main);
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.items .icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 20px;
+    color: var(--main);
+    cursor: pointer;
+}
+.icons i:hover{
+    color: var(--border);
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+}
+nav ul li{
+    padding: 0 10px;
+    margin:0 5px 10px 5px;
+    text-decoration: none;
+}
+nav ul li a{
+    color: var(--main);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+nav ul li:hover{
+    color: var(--border);
+}
+.home{
+    height: 120vh;
+    width: 100%;
+    background-image: url(/Images/Home-Background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-top: -20px;
+}
+.home .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+}
+.text h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--text);
+}
+.text p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: var(--text);
+    text-transform: capitalize;
+}
+.best_selling{
+    position: relative;
+    padding: 20px 0;
+    overflow: hidden;
+}
+h2{
+    font-family: 'Dancing Script', cursive;
+    color:var(--main);
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 25px;
+}
+p{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--border);
+}
+.products{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    padding: 0 15px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+}
+.products::-webkit-scrollbar{
+    height:10px;
+}
+.products .card{
+    flex: 0 0 auto;
+    width: 320px;
+    height: 500px;
+    margin: 0 30px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+.card .add{
+    position: absolute;
+    bottom:20px;
+    right: 23px;
+    background: var(--main);
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid .5px var(--border);
+    cursor: pointer;
+    display: none;
+}
+
+.card img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.card:hover .add{
+    display: block;
+    animation-delay: .5s;
+}
+.card h5 {
+    font-weight: 500;
+    font-size: 13px;
+    position: absolute;
+    top:0;
+    left: 250px;
+    width: 20%;
+    padding: 8px;
+    background: var(--text);
+    color: var(--main);
+    z-index: 2;
+    border-radius: 5px;
+}
+.card h3{
+    font-family: 'Dancing Script', cursive;
+}
+.price{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+}
+.price p{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--main);
+}
+.price .not{
+    text-decoration: line-through;
+    font-weight: 400;
+    color: var(--border);
+}
+
+.categories .cont{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 5px;
+}
+.categories{
+    position: relative;
+}
+.coll{
+    background-image: url('Images/Men.jpg');
+    background-size:100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.coll:nth-child(2){
+    background-image: url('Images/Women.jpg');
+}
+.coll:nth-child(3){
+    background-image: url('Images/Acc.jpg');
+    grid-column: span 2;
+}
+.coll h2{
+    text-align: center;
+    padding: 450px 0;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+    font-size:5rem ;
+    color: var(--main);
+}
+
+.shirts h2{
+    font-family: 'Dancing Script', cursive;
+    color:var(--main);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.new_shirts .card_cont{
+    display:flex;
+    flex-direction: row;
+    padding: 60px 10vw;
+    gap:80px;
+}
+.card_cont .image {
+    background-image: url(/Images/Ck.jpg);
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    position: relative
+}
+.image .con{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 90px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+}
+.con img{
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.con img.active{
+    opacity: .6;
+}
+
+.card_cont h3{
+    
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--main);
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+.card_cont .sizes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin:10px;
+    gap:20px
+}
+.sizes div{
+    font-size: 1.5rem;
+    font-weight: 500;
+    height: 80px;
+    width: 80px;
+    color: var(--main);
+    text-transform: capitalize;
+    cursor: pointer;
+    border:solid 2px var(--border);
+    background-color: var(--background);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 20px;
+    margin-block: 20px;
+}
+.sizes div.active{
+    background-color: var(--main);
+    color: var(--background);
+}
+.card_cont button{
+    background: var(--main);
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: solid .5px var(--border);
+    cursor: pointer;
+    margin-top: 20px;
+}
+.card_cont button:hover{
+    background: var(--background);
+    color: var(--main);
+}
+.footer{
+    background: var(--main);
+    padding: 30px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.footer .container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 80px;
+}
+.footer .logo{
+    grid-column: span 3;
+    margin-left: -200px;
+}
+.footer .category{
+    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+.category h3{
+    grid-column: span 2;
+    color: var(--background);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.category li{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text);
+    text-transform: capitalize;
+    cursor: pointer;
+    list-style: none;
+}
+.category li:hover{
+    color: var(--background);
+}
+.footer .logo h1{
+    color: var(--text);
+    font-size: 7.5rem;
+    padding: 50px 0;
+}
+.about h2{
+    color: var(--background);
+    padding-inline: 150px;
+    font-size: 2.5rem;
+}
+.about p{
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding-inline: 150px;
+    margin-top: -35px;
+}
+.footer .content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 25px 25px 0 25px;
+}
+.content h5{
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.content a{
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.content h6:hover{
+    color: var(--background);
+}
+.content .social{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 20px;
+}
+.social a{
+    margin-inline: 12px;
+    font-size: 1.5rem;
+}
+
+
+
